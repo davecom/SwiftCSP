@@ -8,7 +8,7 @@
 
 /// the meat of the backtrack algorithm - a recursive depth first search
 /// Returns the assignment, or nil if none can be found
-public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false) -> Dictionary<V, D>?
+public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false, lcv: Bool = false, mac3: Bool = false) -> Dictionary<V, D>?
 {
     // assignment is complete if it has as many assignments as there are variables
     if assignment.count == csp.variables.count { return assignment }
@@ -17,17 +17,17 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     var variable = selectUnassignedVariable(csp, assignment, mrv)
     
     // get the domain of it and try each value in the domain
-    for (var value in orderDomainValues(variable, assignment, csp, lcv)) {
-        Map oldAssignment = new Map.from(assignment);
+    for value in orderDomainValues(variable, assignment, csp, lcv) {
         
         // if the value is consistent with the current assignment we continue
-        if (isConsistent(variable, value, assignment, csp)) {
+        if isConsistent(variable, value, assignment, csp) {
             
             // assign it since it's consistent
-            assignment[variable] = value;
+            var localAssignment = assignment
+            localAssignment[variable] = value
             
             // do inferencing if we have that turned on
-            if (mac3) {
+            if mac3 {
                 /*
                 inferences = inference(var, assignment, csp)
                 #by design inferences will have assignments already made
@@ -38,15 +38,29 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
                 
                 if (result != False) return result; */
             } else {
-                Future<Map> result = backtrackingSearch(csp, assignment, mrv: mrv, mac3: mac3, lcv: lcv);
-                if (result != nullFuture) return result;
+                let result = backtrackingSearch(csp, assignment: localAssignment, mrv: mrv, mac3: mac3, lcv: lcv);
+                if (result != nil) {
+                    return result
+                }
             }
         }
         
         //substitution for removing everything
-        assignment = oldAssignment;
+        //assignment = oldAssignment;
     }
     return nil  //no solution
+}
+
+/// check if the value assignment is consistent by checking all constraints of the variable
+func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
+    var tempAssignment = assignment
+    tempAssignment[variable] = value
+    for constraint in csp.constraints[variable]! {  //assume there are constraints for every variable
+        if !constraint.isSatisfied(tempAssignment) {
+            return false
+        }
+    }
+    return true;
 }
 
 /// Return an unassigned variable - we may want to use some logic here to return the

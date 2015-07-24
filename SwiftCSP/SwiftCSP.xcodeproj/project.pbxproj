@@ -18,6 +18,9 @@
 		550E6B1D1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1A1B604CC400CDE757 /* CSP.swift */; };
+		551A3DFD1B62E62F00FD1993 /* SendMoreMoneyConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A3DFC1B62E62F00FD1993 /* SendMoreMoneyConstraint.swift */; };
+		551A3DFF1B62EA6F00FD1993 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A3DFE1B62EA6F00FD1993 /* Variable.swift */; };
+		551A3E001B62EA6F00FD1993 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551A3DFE1B62EA6F00FD1993 /* Variable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,8 @@
 		550E6B101B604AF500CDE757 /* SwiftCSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCSPTests.swift; sourceTree = "<group>"; };
 		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = ../Source/CSP.swift; sourceTree = "<group>"; };
 		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = ../Source/Constraint.swift; sourceTree = "<group>"; };
+		551A3DFC1B62E62F00FD1993 /* SendMoreMoneyConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoreMoneyConstraint.swift; sourceTree = "<group>"; };
+		551A3DFE1B62EA6F00FD1993 /* Variable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Variable.swift; path = ../Source/Variable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				550E6B1A1B604CC400CDE757 /* CSP.swift */,
+				551A3DFE1B62EA6F00FD1993 /* Variable.swift */,
 				550E6B1C1B604E9600CDE757 /* Constraint.swift */,
 				55047EAB1B6158BB00309A30 /* Backtrack.swift */,
 				550E6AFC1B604AF500CDE757 /* SwiftCSP */,
@@ -107,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				550E6B101B604AF500CDE757 /* SwiftCSPTests.swift */,
+				551A3DFC1B62E62F00FD1993 /* SendMoreMoneyConstraint.swift */,
 				55047EAE1B616DE000309A30 /* SendMoreMoneyTests.swift */,
 				550E6B0E1B604AF500CDE757 /* Supporting Files */,
 			);
@@ -225,6 +232,7 @@
 				550E6B1D1B604E9600CDE757 /* Constraint.swift in Sources */,
 				550E6B1B1B604CC400CDE757 /* CSP.swift in Sources */,
 				550E6B001B604AF500CDE757 /* AppDelegate.swift in Sources */,
+				551A3DFF1B62EA6F00FD1993 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +241,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				55047EAD1B6158BB00309A30 /* Backtrack.swift in Sources */,
+				551A3E001B62EA6F00FD1993 /* Variable.swift in Sources */,
 				55047EB01B616DE000309A30 /* SendMoreMoneyTests.swift in Sources */,
 				550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */,
 				550E6B111B604AF500CDE757 /* SwiftCSPTests.swift in Sources */,
+				551A3DFD1B62E62F00FD1993 /* SendMoreMoneyConstraint.swift in Sources */,
 				550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

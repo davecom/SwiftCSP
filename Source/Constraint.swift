@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Oak Snow Consulting. All rights reserved.
 //
 
-public class Constraint <V: Hashable, D> {
-    public func isSatisfied(assignment: Dictionary<V, D>) -> Bool {
+public class Constraint<ValueType: Hashable, DomainType> {
+    public func isSatisfied(assignment: Dictionary<ValueType, DomainType>) -> Bool {
         return true
     }
-    public var vars: [V] {return []}
+    public var vars: [Variable<ValueType, DomainType>] {return []}
 }
 
 public class UnaryConstraint<V: Hashable, D> : Constraint <V, D> {

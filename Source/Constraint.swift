@@ -7,7 +7,7 @@
 //
 
 public class Constraint <V: Hashable, D> {
-    public func isSatisfied<V, D>(assignment: Dictionary<V, D>) -> Bool {
+    public func isSatisfied(assignment: Dictionary<V, D>) -> Bool {
         return true
     }
     public var vars: [V] {return []}

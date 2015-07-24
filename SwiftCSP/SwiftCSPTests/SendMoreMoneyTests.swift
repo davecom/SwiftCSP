@@ -15,7 +15,7 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
         super.init(variables: variables)
     }
     
-    override func isSatisfied<String, Int>(assignment: Dictionary<String, Int>) -> Bool {
+    override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
         /*let d = Set<Int>(assignment.values.array)
         if d.count < assignment.count {
@@ -24,7 +24,6 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
         
         // if all variables have been assigned, check if it adds up correctly
         if assignment.count == variables.count {
-            //if let assi = assignment as? Dictionary<String, Int> {
             if let s = assignment["S"], e = assignment["E"], n = assignment["N"], d = assignment["D"], m = assignment["M"], o = assignment["O"], r = assignment["R"], y = assignment["Y"] {
                 let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
                 let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
@@ -40,7 +39,7 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
         }
         
         // until we have all of the variables assigned, the assignment is valid
-        return true;
+        return true
     }
 }
 
@@ -72,17 +71,18 @@ class SendMoreMoneyTests: XCTestCase {
     func testSolution() {
         // This is an example of a functional test case.
         if let cs: CSP<String, Int> = csp {
-            let solution = backtrackingSearch(cs)
-            print(solution)
-            
-            if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
-                let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
-                let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
-                let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
-                print("\(send) + \(more) = \(money)")
+            if let solution = backtrackingSearch(cs) {
+                print(solution)
+                
+                if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
+                    let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
+                    let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
+                    let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
+                    print("\(send) + \(more) = \(money)")
+                }
+                
+                XCTAssert(true, "Pass")
             }
-            
-            XCTAssert(true, "Pass")
         }
     }
     

@@ -93,7 +93,7 @@ func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>
 /// get the domain variables in a good order
 func orderDomainValues<V, D>(variable: V, assignment: Dictionary<V,D>, csp: CSP<V,D>, lcv: Bool) -> [D] {
     return csp.domains[variable]!  //asume there is a domain for every variable
-    if lcv {  //not implemented yet
+    /*if lcv {  //not implemented yet
         /*// currently works only for binary constraints
         // dictionary that we'll sort by the key - the number of constraints
         Map newOrder = {};
@@ -114,5 +114,5 @@ func orderDomainValues<V, D>(variable: V, assignment: Dictionary<V,D>, csp: CSP<
     } else {
         // no logic right now just return the domain
         return csp.domains[variable]! //assume there is a domain for every variable
-    }
+    }*/
 }

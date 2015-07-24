@@ -17,10 +17,10 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
     
     override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
-        /*let d = Set<Int>(assignment.values.array)
+        let d = Set<Int>(assignment.values.array)
         if d.count < assignment.count {
             return false
-        }*/
+        }
         
         // if all variables have been assigned, check if it adds up correctly
         if assignment.count == variables.count {
@@ -59,7 +59,7 @@ class SendMoreMoneyTests: XCTestCase {
         
         csp = CSP<String, Int>(variables: variables, domains: domains)
         let smmc = SendMoreMoneyConstraint<String, Int>(variables: variables)
-        csp.addConstraint(smmc)
+        csp?.addConstraint(smmc)
         
     }
     
@@ -71,7 +71,7 @@ class SendMoreMoneyTests: XCTestCase {
     func testSolution() {
         // This is an example of a functional test case.
         if let cs: CSP<String, Int> = csp {
-            if let solution = backtrackingSearch(cs) {
+            if let solution = backtrackingSearch(cs, mrv: true) {
                 print(solution)
                 
                 if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {

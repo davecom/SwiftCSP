@@ -18,10 +18,10 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     
     // get the domain of it and try each value in the domain
     for value in orderDomainValues(variable, assignment, csp, lcv) {
-        
+
         // if the value is consistent with the current assignment we continue
         if isConsistent(variable, value, assignment, csp) {
-            
+            //println("Found \(variable) with value \(value) and other assignment \(assignment) consistent")
             // assign it since it's consistent
             var localAssignment = assignment
             localAssignment[variable] = value
@@ -87,6 +87,7 @@ func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>
             }
         }
     }
+    println("No unassigned variables")
     return csp.variables.first! //will crash if csp has no variables
 }
 

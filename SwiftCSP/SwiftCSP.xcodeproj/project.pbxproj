@@ -165,6 +165,7 @@
 		550E6AF21B604AF500CDE757 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Oak Snow Consulting";
 				TargetAttributes = {

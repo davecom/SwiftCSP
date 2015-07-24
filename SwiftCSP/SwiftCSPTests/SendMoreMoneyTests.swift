@@ -9,25 +9,33 @@
 import Cocoa
 import XCTest
 
-class SendMoreMoneyConstraint<V: Hashable>: ListConstraint <V> {
+class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
     
+    override init(variables: [String]) {
+        super.init(variables: variables)
+    }
     
-    override func isSatisfied<V, D>(assignment: Dictionary<V, D>) -> Bool {
+    override func isSatisfied<String, Int>(assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
-        let d = Set(assignment.values)
+        /*let d = Set<Int>(assignment.values.array)
         if d.count < assignment.count {
             return false
-        }
+        }*/
         
         // if all variables have been assigned, check if it adds up correctly
         if assignment.count == variables.count {
-            let send: Int = assignment["S"]! * 1000 + assignment["E"]! * 100 + assignment["N"]! * 10 + assignment["D"]!
-            let more: Int = assignment["M"]! * 1000 + assignment["O"]! * 100 + assignment["R"]! * 10 + assignment["E"]!
-            let money: Int = assignment["M"]! * 10000 + assignment["O"]! * 1000 + assignment["N"]! * 100 + assignment["E"]! * 10 + assignment["Y"]!
-            if (send + more) == money {
-                return true;
+            //if let assi = assignment as? Dictionary<String, Int> {
+            if let s = assignment["S"], e = assignment["E"], n = assignment["N"], d = assignment["D"], m = assignment["M"], o = assignment["O"], r = assignment["R"], y = assignment["Y"] {
+                let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
+                let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
+                let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
+                if (send + more) == money {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return false;
+                return false
             }
         }
         
@@ -42,7 +50,7 @@ class SendMoreMoneyTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let variables = ["S", "E", "N", "D", "M", "O", "R", "Y"]
+        let variables: [String] = ["S", "E", "N", "D", "M", "O", "R", "Y"]
         var domains = Dictionary<String, [Int]>()
         for variable in variables {
             domains[variable] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -50,8 +58,9 @@ class SendMoreMoneyTests: XCTestCase {
         domains["S"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         domains["M"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         
-        csp = CSP(variables, domains)
-        csp.addConstraint(SendMoreMoneyConstraint(variables))
+        csp = CSP<String, Int>(variables: variables, domains: domains)
+        let smmc = SendMoreMoneyConstraint<String, Int>(variables: variables)
+        csp.addConstraint(smmc)
         
     }
     
@@ -62,14 +71,16 @@ class SendMoreMoneyTests: XCTestCase {
     
     func testSolution() {
         // This is an example of a functional test case.
-        if let cs = csp {
+        if let cs: CSP<String, Int> = csp {
             let solution = backtrackingSearch(cs)
             print(solution)
             
-            let send: Int = solution["S"]! * 1000 + solution["E"]! * 100 + solution["N"]! * 10 + solution["D"]!
-            let more: Int = solution["M"]! * 1000 + solution["O"]! * 100 + solution["R"]! * 10 + solution["E"]!
-            let money: Int = solution["M"]! * 10000 + solution["O"]! * 1000 + solution["N"]! * 100 + solution["E"]! * 10 + solution["Y"]!
-            print("\(send) + \(more) = \(money)")
+            if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
+                let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
+                let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
+                let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
+                print("\(send) + \(more) = \(money)")
+            }
             
             XCTAssert(true, "Pass")
         }

@@ -14,7 +14,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     if assignment.count == csp.variables.count { return assignment }
     
     // get a var to assign
-    var variable = selectUnassignedVariable(csp, assignment, mrv)
+    let variable = selectUnassignedVariable(csp, assignment, mrv)
     
     // get the domain of it and try each value in the domain
     for value in orderDomainValues(variable, assignment, csp, lcv) {

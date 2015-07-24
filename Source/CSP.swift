@@ -9,7 +9,7 @@
 public struct CSP <V: Hashable, D> {
     let variables: [V]
     let domains: [V: [D]]
-    var constraints: [V: [Constraint<V>]] = Dictionary<V, [Constraint<V>]>()
+    var constraints = Dictionary<V, [Constraint<V, D>]>()
     
     init (variables: [V], domains:[V: [D]]) {
         self.variables = variables
@@ -22,7 +22,7 @@ public struct CSP <V: Hashable, D> {
         }
     }
     
-    public mutating func addConstraint(constraint: Constraint<V>) {
+    public mutating func addConstraint(constraint: Constraint<V, D>) {
         for variable in constraint.vars {
             if find(variables, variable) == nil {
                 print("Error: Could not find variable \(variable) from constraint \(constraint) in CSP.")

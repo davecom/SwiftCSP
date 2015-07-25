@@ -2,12 +2,36 @@
 //  Backtrack.swift
 //  SwiftCSP
 //
-//  Created by David Kopec on 7/23/15.
-//  Copyright (c) 2015 Oak Snow Consulting. All rights reserved.
+// The SwiftCSP License (MIT)
 //
+// Copyright (c) 2015 David Kopec
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 /// the meat of the backtrack algorithm - a recursive depth first search
-/// Returns the assignment, or nil if none can be found
+/// 
+/// :param: csp The CSP to operate on.
+/// :param: assignment Optionally, an already partially completed assignment.
+/// :param: mrv Should it use the mrv heuristic to try to improve performance (default false)
+/// :param: lcv SHould it use the lcv heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
+/// :param: mac3 SHould it use the mac3 heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
+/// :returns: the assignment (solution), or nil if none can be found
 public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false, lcv: Bool = false, mac3: Bool = false) -> Dictionary<V, D>?
 {
     // assignment is complete if it has as many assignments as there are variables

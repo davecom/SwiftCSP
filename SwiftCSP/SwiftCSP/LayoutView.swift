@@ -9,15 +9,15 @@
 import Cocoa
 
 class LayoutView: NSView {
-    let boxDimension: UInt = 20
+    let boxDimension: Int = 20
     var circuitBoards: [CircuitBoard] = []
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
         // Drawing code here.
-        let width = UInt(self.frame.size.width)
-        let height = UInt(self.frame.size.height)
+        let width = Int(self.frame.size.width)
+        let height = Int(self.frame.size.height)
         
         //draw boards
         for board in circuitBoards {
@@ -31,11 +31,11 @@ class LayoutView: NSView {
         //draw grid
         var bPath:NSBezierPath = NSBezierPath()
         
-        for var i: UInt = 0; i <= boxDimension; i++ {
+        for var i: Int = 0; i <= boxDimension; i++ {
             bPath.moveToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(0)))
             bPath.lineToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(height)))
         }
-        for var i: UInt = 0; i <= boxDimension; i++ {
+        for var i: Int = 0; i <= boxDimension; i++ {
             bPath.moveToPoint(NSMakePoint(CGFloat(0), CGFloat((height/boxDimension) * i)))
             bPath.lineToPoint(NSMakePoint(CGFloat(width), CGFloat((height/boxDimension) * i)))
         }

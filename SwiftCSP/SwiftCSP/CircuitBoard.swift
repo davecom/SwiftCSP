@@ -9,16 +9,16 @@
 import Cocoa
 
 class CircuitBoard: NSObject {  //get hashable for free and dynamic access
-    var height: UInt = 1
-    var width: UInt = 1
+    var height: Int = 1
+    var width: Int = 1
     var color: NSColor = NSColor.redColor()
-    var location: (UInt, UInt)?
+    var location: (Int, Int)?
     
-    //generate the domain as a list of tuples of top left corners
-    func generateDomain(boardWidth: UInt, boardHeight: UInt) -> [(UInt, UInt)] {
-        var domain: [(UInt, UInt)] = []
-        for (var x: UInt = 0; x < (boardWidth - width + 1); x++) {
-            for (var y: UInt = (height - 1); y < boardHeight; y++) {
+    //generate the domain as a list of tuples of bottom left corners
+    func generateDomain(boardWidth: Int, boardHeight: Int) -> [(Int, Int)] {
+        var domain: [(Int, Int)] = []
+        for (var x: Int = 0; x < (boardWidth - width + 1); x++) {
+            for (var y: Int = 0; y < (boardHeight - height + 1); y++) {
                 let temp = (x, y)
                 domain.append(temp)
             }

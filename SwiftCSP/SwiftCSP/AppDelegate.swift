@@ -13,8 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var layoutView: LayoutView!
     var circuitBoards: [CircuitBoard] = []
-    let boardWidth: UInt = 20
-    let boardHeight: UInt = 20
+    let boardWidth: Int = 20
+    let boardHeight: Int = 20
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -27,20 +27,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func solve(sender: AnyObject) {
         //create the CSP
         var variables = circuitBoards
-        var domains: Dictionary<CircuitBoard, [(UInt, UInt)]>  = Dictionary<CircuitBoard, [(UInt, UInt)]>()
+        var domains: Dictionary<CircuitBoard, [(Int, Int)]>  = Dictionary<CircuitBoard, [(Int, Int)]>()
         for variable in variables {
             domains[variable] = variable.generateDomain(boardWidth, boardHeight: boardHeight)
         }
         
-        var cb_csp: CSP<CircuitBoard, (UInt, UInt)> = CSP<CircuitBoard, (UInt, UInt)>(variables: variables, domains: domains)
+        var cb_csp: CSP<CircuitBoard, (Int, Int)> = CSP<CircuitBoard, (Int, Int)>(variables: variables, domains: domains)
         
         //add constraints
         for var i = 0; i < variables.count; i++ {
             for var j = i + 1; j < variables.count; j++ {
-                let cbconst = CircuitBoardConstraint<CircuitBoard, (UInt, UInt)>(variable1: variables[i], variable2: variables[j])
+                let cbconst = CircuitBoardConstraint<CircuitBoard, (Int, Int)>(variable1: variables[i], variable2: variables[j])
                 cb_csp.addConstraint(cbconst)
-                println(cbconst.variable1.width)
-                println(cbconst.variable2.width)
+                //println(cbconst.variable1.width)
+                //println(cbconst.variable2.width)
             }
         }
         

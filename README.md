@@ -1,5 +1,5 @@
 # SwiftCSP
-SwiftCSP is a constraint satisfaction problem solver written in pure Swift (no Cocoa). It utilizes a simple backtracking algorithm with plans for future optimizations. At this stage of development, it's fairly slow but it includes examples of solving actual problems.
+SwiftCSP is a constraint satisfaction problem solver written in pure Swift (no Cocoa). It utilizes a simple backtracking algorithm with plans for future optimizations. At this stage of development, it's fairly slow but it includes examples of solving actual problems. It runs on both iOS and OS X.
 
 A [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) is a problem composed of *variables* that have possible values (*domains*) and *constraints* on what those values can be. A solver finds a potential solution to that problem by selecting values from the domains of each variable that fit the constraints. For more information you should checkout Chapter 6 of Artificial Intelligence: A Modern Approach (Third Edition) by Norvig and Russell.
 

@@ -18,6 +18,9 @@ class CircuitBoardConstraint<V, D>: BinaryConstraint<CircuitBoard, (UInt, UInt)>
     override func isSatisfied(assignment: Dictionary<CircuitBoard, (UInt, UInt)>) -> Bool {
         //if either variable is not in the assignment then it must be consistent
         //since they still have their domain
+        println(assignment)
+        println(variable1)
+        println(variable2)
         if assignment[variable1] == nil || assignment[variable2] == nil {
             return true
         }

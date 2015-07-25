@@ -20,6 +20,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     for value in orderDomainValues(variable, assignment, csp, lcv) {
 
         // if the value is consistent with the current assignment we continue
+        //println(assignment)
         if isConsistent(variable, value, assignment, csp) {
             //println("Found \(variable) with value \(value) and other assignment \(assignment) consistent")
             // assign it since it's consistent

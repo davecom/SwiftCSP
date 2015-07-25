@@ -18,6 +18,7 @@
 		550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1A1B604CC400CDE757 /* CSP.swift */; };
 		55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */; };
+		55CD29181B6327CA00DF47C5 /* EightQueensTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = ../Source/CSP.swift; sourceTree = "<group>"; };
 		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = ../Source/Constraint.swift; sourceTree = "<group>"; };
 		55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AustralianMapColoringTest.swift; sourceTree = "<group>"; };
+		55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightQueensTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */,
 				55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */,
+				55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */,
 				550E6B0E1B604AF500CDE757 /* Supporting Files */,
 			);
 			path = SwiftCSPTests;
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55CD29181B6327CA00DF47C5 /* EightQueensTest.swift in Sources */,
 				55047EAD1B6158BB00309A30 /* Backtrack.swift in Sources */,
 				55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */,
 				55047EB01B616DE000309A30 /* SendMoreMoneyTest.swift in Sources */,

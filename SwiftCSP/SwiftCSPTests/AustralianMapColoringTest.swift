@@ -9,58 +9,47 @@
 import Cocoa
 import XCTest
 
-class MapColoringConstraint<V, D>: ListConstraint <String, Int> {
+class MapColoringConstraint<V, D>: BinaryConstraint <String, String> {
     
-    override init(variables: [String]) {
-        super.init(variables: variables)
+    init(place1: String, place2: String) {
+        super.init(variable1: place1, variable2: place2)
     }
     
-    override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
-        // if there are duplicate values then it's not correct
-        let d = Set<Int>(assignment.values)
-        if d.count < assignment.count {
-            return false
+    override func isSatisfied(assignment: Dictionary<String, String>) -> Bool {
+        // if either variable is not in the assignment then it must be consistent
+        // since they still have their domain
+        if assignment[variable1] == nil || assignment[variable2] == nil {
+                return true
         }
-        
-        // if all variables have been assigned, check if it adds up correctly
-        if assignment.count == variables.count {
-            if let s = assignment["S"], e = assignment["E"], n = assignment["N"], d = assignment["D"], m = assignment["M"], o = assignment["O"], r = assignment["R"], y = assignment["Y"] {
-                let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
-                let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
-                let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
-                if (send + more) == money {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false
-            }
-        }
-        
-        // until we have all of the variables assigned, the assignment is valid
-        return true
+        // check that the color of var1 does not equal var2
+        return assignment[variable1] != assignment[variable2]
     }
 }
 
 class AustralianMapColoringTest: XCTestCase {
-    var csp: CSP<String, Int>?
+    var csp: CSP<String, String>?
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let variables: [String] = ["S", "E", "N", "D", "M", "O", "R", "Y"]
-        var domains = Dictionary<String, [Int]>()
+        let variables: [String] = ["Western Australia", "Northern Territory",
+            "South Australia", "Queensland", "New South Wales", "Victoria", "Tasmania"]
+        var domains = Dictionary<String, [String]>()
         for variable in variables {
-            domains[variable] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            domains[variable] = ["r", "g", "b"]
         }
-        domains["S"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        domains["M"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         
-        csp = CSP<String, Int>(variables: variables, domains: domains)
-        let smmc = SendMoreMoneyConstraint<String, Int>(variables: variables)
-        csp?.addConstraint(smmc)
-        
+        csp = CSP<String, String>(variables: variables, domains: domains)
+        csp?.addConstraint(MapColoringConstraint<String,String>(place1: "Western Australia", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Western Australia", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "South Australia", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Queensland", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Queensland",
+            place2: "South Australia"));
+        csp?.addConstraint(MapColoringConstraint<String, String>(place1: "Queensland", place2: "New South Wales"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "New South Wales", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Victoria", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Victoria",place2: "New South Wales"));
     }
     
     override func tearDown() {
@@ -70,31 +59,15 @@ class AustralianMapColoringTest: XCTestCase {
     
     func testSolution() {
         // This is an example of a functional test case.
-        if let cs: CSP<String, Int> = csp {
-            if let solution = backtrackingSearch(cs, mrv: true) {
+        if let cs: CSP<String, String> = csp {
+            if let solution = backtrackingSearch(cs, mrv: false) {
                 print(solution)
-                
-                if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
-                    let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
-                    let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
-                    let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
-                    print("\(send) + \(more) = \(money)")
-                    XCTAssertEqual((send + more), money, "Pass")
-                } else {
-                    XCTFail("Fail")
-                }
+                XCTAssertEqual(solution, ["South Australia": "b", "New South Wales": "g", "Western Australia": "r", "Northern Territory": "g", "Victoria": "r", "Tasmania": "r", "Queensland": "r"], "Pass")
             } else {
                 XCTFail("Fail")
             }
         } else {
             XCTFail("Fail")
-        }
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
         }
     }
     

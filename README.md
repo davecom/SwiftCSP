@@ -45,7 +45,7 @@ class EightQueensConstraint<V, D>: ListConstraint <Int, Int>
 In Swift 2 you will be able to exclude the *<V, D>* since it allows non-generic subclasses of generic classes.
 
 ## Performance
-Performance is currently not great for problems with a medium size domain space. Profiling has shown a large portion of this may be attributable to the performance of Swift's native Dictionary type. Improved heuristics such as LCV and MAC3 are planned (spaces in the source code are left for them and contributions are welcome!) and should improve the situation. Swift 2.0 may also improve things.
+Performance is currently not great for problems with a medium size domain space. Profiling has shown a large portion of this may be attributable to the performance of Swift's native Dictionary type. Improved heuristics such as LCV and MAC3 are planned (spaces in the source code are left for them and contributions are welcome!) and should improve the situation. Swift 2.0 may also improve things. You can turn on the MRV heuristic (which is already implemented) when calling `backtrackingSearch()` to improve performance in many instances.
 
 ## Generics
 SwiftCSP makes extensive use of generics. It seems like a lot of unnecessary angle brackets, but Swift 1.2 does not allow a non-generic class to be a subclass of a generic class (Swift 2 does) leading to some unecessary generic constraint subclasses. In the future constraint subclasses will not need to be generic themselves. Due to limitation in Swift generics, `Constraint` is a class instead of a protocol.

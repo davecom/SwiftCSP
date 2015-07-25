@@ -11,6 +11,7 @@ The unit tests included with the project are also well known toy problems includ
 - [The Australian Map Coloring Problem](https://en.wikipedia.org/wiki/Four_color_theorem)
 - [Send + More = Money](https://en.wikipedia.org/wiki/Verbal_arithmetic) Note this currently takes ~100 seconds to execute.
 - [Eight Queens Problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
+
 Looking at them should give you a good idea about how to use the library. In addition, the program included in the main project is an example of the circuit board layout problem.
 
 ## Usage
@@ -50,7 +51,7 @@ Performance is currently not great for problems with a medium size domain space.
 SwiftCSP makes extensive use of generics. It seems like a lot of unnecessary angle brackets, but Swift 1.2 does not allow a non-generic class to be a subclass of a generic class (Swift 2 does) leading to some unecessary generic constraint subclasses. In the future constraint subclasses will not need to be generic themselves. Due to limitation in Swift generics, `Constraint` is a class instead of a protocol.
 
 ## Help Wanted
-Contributions that implement heuristics, improve performance in other ways, or simplify the design are more than welcome. Just make sure all of the unit tests still run and the new version maintains the flexibility of having any `Hashable` type as a variable and any type as a `Domain`.
+Contributions that implement heuristics, improve performance in other ways, or simplify the design are more than welcome. Just make sure all of the unit tests still run and the new version maintains the flexibility of having any `Hashable` type as a variable and any type as a `Domain`. Additional unit tests are also welcome.
 
 ## Authorship and License
 SwiftCSP was written by David Kopec and released under the MIT License (see `LICENSE`). It was originally a port of a Dart library I wrote called [constraineD](https://github.com/davecom/constraineD) which itself was a port of a Python library I wrote many years before that.

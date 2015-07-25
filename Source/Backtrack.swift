@@ -53,7 +53,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
 
 /// check if the value assignment is consistent by checking all constraints of the variable
 func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
-    var tempAssignment = assignment
+    var tempAssignment: Dictionary<V, D> = assignment
     tempAssignment[variable] = value
     for constraint in csp.constraints[variable]! {  //assume there are constraints for every variable
         if !constraint.isSatisfied(tempAssignment) {

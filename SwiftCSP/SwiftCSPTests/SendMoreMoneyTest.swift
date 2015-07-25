@@ -17,7 +17,7 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
     
     override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
-        let d = Set<Int>(assignment.values.array)
+        let d = Set<Int>(assignment.values)
         if d.count < assignment.count {
             return false
         }
@@ -43,7 +43,7 @@ class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
     }
 }
 
-class SendMoreMoneyTests: XCTestCase {
+class SendMoreMoneyTest: XCTestCase {
     var csp: CSP<String, Int>?
     
     override func setUp() {
@@ -79,18 +79,15 @@ class SendMoreMoneyTests: XCTestCase {
                     let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
                     let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
                     print("\(send) + \(more) = \(money)")
+                    XCTAssertEqual((send + more), money, "Pass")
+                } else {
+                    XCTFail("Fail")
                 }
-                
-                XCTAssert(true, "Pass")
+            } else {
+                XCTFail("Fail")
             }
+        } else {
+            XCTFail("Fail")
         }
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+    }    
 }

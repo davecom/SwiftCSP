@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		55047EAC1B6158BB00309A30 /* Backtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55047EAB1B6158BB00309A30 /* Backtrack.swift */; };
 		55047EAD1B6158BB00309A30 /* Backtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55047EAB1B6158BB00309A30 /* Backtrack.swift */; };
-		55047EB01B616DE000309A30 /* SendMoreMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55047EAE1B616DE000309A30 /* SendMoreMoneyTests.swift */; };
+		55047EB01B616DE000309A30 /* SendMoreMoneyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */; };
 		550E6B001B604AF500CDE757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6AFF1B604AF500CDE757 /* AppDelegate.swift */; };
 		550E6B021B604AF500CDE757 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E6B011B604AF500CDE757 /* Images.xcassets */; };
 		550E6B051B604AF500CDE757 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550E6B031B604AF500CDE757 /* MainMenu.xib */; };
-		550E6B111B604AF500CDE757 /* SwiftCSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B101B604AF500CDE757 /* SwiftCSPTests.swift */; };
 		550E6B1B1B604CC400CDE757 /* CSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1A1B604CC400CDE757 /* CSP.swift */; };
 		550E6B1D1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1A1B604CC400CDE757 /* CSP.swift */; };
+		55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		55047EAB1B6158BB00309A30 /* Backtrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Backtrack.swift; path = ../Source/Backtrack.swift; sourceTree = "<group>"; };
-		55047EAE1B616DE000309A30 /* SendMoreMoneyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoreMoneyTests.swift; sourceTree = "<group>"; };
+		55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoreMoneyTest.swift; sourceTree = "<group>"; };
 		550E6AFA1B604AF500CDE757 /* SwiftCSP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCSP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		550E6AFE1B604AF500CDE757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550E6AFF1B604AF500CDE757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,9 +40,9 @@
 		550E6B041B604AF500CDE757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		550E6B0A1B604AF500CDE757 /* SwiftCSPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCSPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550E6B0F1B604AF500CDE757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550E6B101B604AF500CDE757 /* SwiftCSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCSPTests.swift; sourceTree = "<group>"; };
 		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = ../Source/CSP.swift; sourceTree = "<group>"; };
 		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = ../Source/Constraint.swift; sourceTree = "<group>"; };
+		55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AustralianMapColoringTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 		550E6B0D1B604AF500CDE757 /* SwiftCSPTests */ = {
 			isa = PBXGroup;
 			children = (
-				550E6B101B604AF500CDE757 /* SwiftCSPTests.swift */,
-				55047EAE1B616DE000309A30 /* SendMoreMoneyTests.swift */,
+				55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */,
+				55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */,
 				550E6B0E1B604AF500CDE757 /* Supporting Files */,
 			);
 			path = SwiftCSPTests;
@@ -233,9 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				55047EAD1B6158BB00309A30 /* Backtrack.swift in Sources */,
-				55047EB01B616DE000309A30 /* SendMoreMoneyTests.swift in Sources */,
+				55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */,
+				55047EB01B616DE000309A30 /* SendMoreMoneyTest.swift in Sources */,
 				550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */,
-				550E6B111B604AF500CDE757 /* SwiftCSPTests.swift in Sources */,
 				550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,12 +44,11 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     for value in orderDomainValues(variable, assignment, csp, lcv) {
 
         // if the value is consistent with the current assignment we continue
+        var localAssignment = assignment
+        localAssignment[variable] = value
         //println(assignment)
-        if isConsistent(variable, value, assignment, csp) {
+        if isConsistent(variable, value, localAssignment, csp) {
             //println("Found \(variable) with value \(value) and other assignment \(assignment) consistent")
-            // assign it since it's consistent
-            var localAssignment = assignment
-            localAssignment[variable] = value
             
             // do inferencing if we have that turned on
             if mac3 {
@@ -78,10 +77,8 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
 
 /// check if the value assignment is consistent by checking all constraints of the variable
 func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
-    var tempAssignment: Dictionary<V, D> = assignment
-    tempAssignment[variable] = value
     for constraint in csp.constraints[variable]! {  //assume there are constraints for every variable
-        if !constraint.isSatisfied(tempAssignment) {
+        if !constraint.isSatisfied(assignment) {
             return false
         }
     }

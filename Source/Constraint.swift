@@ -30,8 +30,8 @@
 public class Constraint <V: Hashable, D> {
     /// All subclasses should override this method. It defines whether a constraint has successfully been satisfied.
     ///
-    /// :param: assignment Potential domain selections for variables that are part of the constraint.
-    /// :returns: Whether the constraint is satisfied.
+    /// - parameter assignment: Potential domain selections for variables that are part of the constraint.
+    /// - returns: Whether the constraint is satisfied.
     public func isSatisfied(assignment: Dictionary<V, D>) -> Bool {
         return true
     }

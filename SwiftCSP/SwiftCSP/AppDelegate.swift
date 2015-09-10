@@ -67,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             for (variable, location) in solution {
                 variable.location = location
             }
-            layoutView.circuitBoards = solution.keys.array
+            layoutView.circuitBoards = Array(solution.keys)
             layoutView.needsDisplay = true
         } else {
             let nsa: NSAlert = NSAlert()

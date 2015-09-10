@@ -79,7 +79,7 @@ class AustralianMapColoringTest: XCTestCase {
         // This is an example of a functional test case.
         if let cs: CSP<String, String> = csp {
             if let solution = backtrackingSearch(cs, mrv: false) {
-                print(solution)
+                print(solution, terminator: "")
                 XCTAssertEqual(solution, ["South Australia": "b", "New South Wales": "g", "Western Australia": "r", "Northern Territory": "g", "Victoria": "r", "Tasmania": "r", "Queensland": "r"], "Pass")
             } else {
                 XCTFail("Fail")

@@ -47,7 +47,7 @@ class LayoutView: NSView {
         }
         
         //draw grid
-        var bPath:NSBezierPath = NSBezierPath()
+        let bPath:NSBezierPath = NSBezierPath()
         
         for var i: Int = 0; i <= boxDimension; i++ {
             bPath.moveToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(0)))

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftCSP'
-  s.version          = '0.9.1'
+  s.version          = '0.9.2'
   s.license          = 'MIT'
   s.summary          = 'A Constraint Satisfaction Problem Solver in Pure Swift'
   s.homepage         = 'https://github.com/davecom/SwiftCSP'

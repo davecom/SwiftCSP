@@ -38,32 +38,32 @@ class EightQueensConstraint<V, D>: ListConstraint <Int, Int> {
         // better to subtract one from the other and go from there
         for q in assignment.values {
             for (var i = q - 1; q % 8 > i % 8; i--) { //same file backwards
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
             for (var i = q + 1; q % 8 < i % 8; i++) { //same file forwards
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
             for (var i = q - 9; i >= 0 && q % 8 > i % 8; i -= 9) { // diagonal up and back
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
             for (var i = q - 7; i >= 0 && q % 8 < i % 8; i -= 7) { // diagonal up and forward
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
             for (var i = q + 7; i < 64 && i % 8 < q % 8; i += 7) { // diagonal down and back
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
             for (var i = q + 9; i < 64 && q % 8 < i % 8; i += 9) { // diagonal down and forward
-                if find(assignment.values, i) != nil {
+                if assignment.values.indexOf(i) != nil {
                     return false
                 }
             }
@@ -77,7 +77,7 @@ class EightQueensConstraint<V, D>: ListConstraint <Int, Int> {
 func drawQueens(solution: Dictionary<Int, Int>) {
     var output = "\n"
     for (var i = 0; i < 64; i++) {
-        if (find(solution.values, i) != nil) {
+        if (solution.values.indexOf(i) != nil) {
             output += "Q"
         } else {
             output += "X"
@@ -86,7 +86,7 @@ func drawQueens(solution: Dictionary<Int, Int>) {
             output += "\n"
         }
     }
-    print(output);
+    print(output, terminator: "");
 }
 
 class EightQueensTest: XCTestCase {
@@ -119,7 +119,7 @@ class EightQueensTest: XCTestCase {
         // This is an example of a functional test case.
         if let cs: CSP<Int, Int> = csp {
             if let solution = backtrackingSearch(cs, mrv: true) {
-                print(solution)
+                print(solution, terminator: "")
                 drawQueens(solution)
                 XCTAssertEqual(solution, [2: 58, 4: 20, 5: 53, 6: 14, 7: 31, 0: 0, 1: 33, 3: 43], "Pass")
             } else {

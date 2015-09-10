@@ -90,13 +90,13 @@ class SendMoreMoneyTest: XCTestCase {
         // This is an example of a functional test case.
         if let cs: CSP<String, Int> = csp {
             if let solution = backtrackingSearch(cs, mrv: true) {
-                print(solution)
+                print(solution, terminator: "")
                 
                 if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
                     let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
                     let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
                     let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
-                    print("\(send) + \(more) = \(money)")
+                    print("\(send) + \(more) = \(money)", terminator: "")
                     XCTAssertEqual((send + more), money, "Pass")
                 } else {
                     XCTFail("Fail")

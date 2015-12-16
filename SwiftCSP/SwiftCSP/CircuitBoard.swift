@@ -35,8 +35,8 @@ class CircuitBoard: NSObject {  //get hashable for free and dynamic access
     //generate the domain as a list of tuples of bottom left corners
     func generateDomain(boardWidth: Int, boardHeight: Int) -> [(Int, Int)] {
         var domain: [(Int, Int)] = []
-        for (var x: Int = 0; x < (boardWidth - width + 1); x++) {
-            for (var y: Int = 0; y < (boardHeight - height + 1); y++) {
+        for x in 0..<(boardWidth - width + 1) {
+            for y in 0..<(boardHeight - height + 1) {
                 let temp = (x, y)
                 domain.append(temp)
             }

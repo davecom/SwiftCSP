@@ -53,8 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var cb_csp: CSP<CircuitBoard, (Int, Int)> = CSP<CircuitBoard, (Int, Int)>(variables: variables, domains: domains)
         
         //add constraints
-        for var i = 0; i < variables.count; i++ {
-            for var j = i + 1; j < variables.count; j++ {
+        for i in 0..<variables.count {
+            for j in (i+1)..<variables.count {
                 let cbconst = CircuitBoardConstraint<CircuitBoard, (Int, Int)>(variable1: variables[i], variable2: variables[j])
                 cb_csp.addConstraint(cbconst)
                 //println(cbconst.variable1.width)

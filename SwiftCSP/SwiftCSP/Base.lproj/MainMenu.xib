@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -681,14 +681,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="688" height="440"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOh-0l-gcr">
+                    <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOh-0l-gcr">
                         <rect key="frame" x="20" y="130" width="240" height="265"/>
                         <clipView key="contentView" id="PHv-Th-Rhk">
-                            <rect key="frame" x="1" y="17" width="238" height="117"/>
+                            <rect key="frame" x="1" y="0.0" width="238" height="264"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="pxj-tY-lTr" viewBased="YES" id="cSZ-Tp-wNm">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="238" height="241"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -827,11 +827,11 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="pxj-tY-lTr">
-                            <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="238" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5if-lC-e6r">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5if-lC-e6r">
                         <rect key="frame" x="97" y="403" width="87" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Circuitboards" id="SM9-gL-WKE">
                             <font key="font" metaFont="system"/>
@@ -839,10 +839,10 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="xzc-6j-ydp" customClass="LayoutView" customModule="SwiftCSP" customModuleProvider="target">
+                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-6j-ydp" customClass="LayoutView" customModule="SwiftCSP" customModuleProvider="target">
                         <rect key="frame" x="268" y="20" width="400" height="400"/>
                     </customView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-kq-7Rv">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-kq-7Rv">
                         <rect key="frame" x="225" y="87" width="41" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="AZ4-j9-kUp"/>
@@ -855,7 +855,7 @@
                             <action selector="add:" target="mvl-Ec-mO6" id="C0D-lm-om1"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4jL-Lf-sKc">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jL-Lf-sKc">
                         <rect key="frame" x="184" y="87" width="41" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="DEt-hc-FkU"/>
@@ -872,7 +872,7 @@ CA
                             <binding destination="mvl-Ec-mO6" name="enabled" keyPath="canRemove" id="3m5-C2-m0j"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-4u-4J1">
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-4u-4J1">
                         <rect key="frame" x="103" y="13" width="75" height="32"/>
                         <buttonCell key="cell" type="push" title="Solve" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VKd-G6-joW">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

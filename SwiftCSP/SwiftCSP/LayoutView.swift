@@ -49,11 +49,11 @@ class LayoutView: NSView {
         //draw grid
         let bPath:NSBezierPath = NSBezierPath()
         
-        for var i: Int = 0; i <= boxDimension; i++ {
+        for i in 0...boxDimension {
             bPath.moveToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(0)))
             bPath.lineToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(height)))
         }
-        for var i: Int = 0; i <= boxDimension; i++ {
+        for i in 0...boxDimension {
             bPath.moveToPoint(NSMakePoint(CGFloat(0), CGFloat((height/boxDimension) * i)))
             bPath.lineToPoint(NSMakePoint(CGFloat(width), CGFloat((height/boxDimension) * i)))
         }

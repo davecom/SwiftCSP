@@ -27,7 +27,7 @@
 import Foundation
 
 //A binary constraint that makes sure two Chip variables do not overlap.
-class CircuitBoardConstraint<V, D>: BinaryConstraint<CircuitBoard, (Int, Int)> {
+class CircuitBoardConstraint: BinaryConstraint<CircuitBoard, (Int, Int)> {
     
     override init(variable1: CircuitBoard, variable2: CircuitBoard) {
         super.init(variable1: variable1, variable2: variable2)

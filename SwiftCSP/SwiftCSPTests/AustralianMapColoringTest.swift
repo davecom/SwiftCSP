@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class MapColoringConstraint<V, D>: BinaryConstraint <String, String> {
+class MapColoringConstraint: BinaryConstraint <String, String> {
     
     init(place1: String, place2: String) {
         super.init(variable1: place1, variable2: place2)
@@ -58,16 +58,16 @@ class AustralianMapColoringTest: XCTestCase {
         }
         
         csp = CSP<String, String>(variables: variables, domains: domains)
-        csp?.addConstraint(MapColoringConstraint<String,String>(place1: "Western Australia", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Western Australia", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "South Australia", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Queensland", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Queensland",
+        csp?.addConstraint(MapColoringConstraint(place1: "Western Australia", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint(place1: "Western Australia", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint(place1: "South Australia", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint(place1: "Queensland", place2: "Northern Territory"));
+        csp?.addConstraint( MapColoringConstraint(place1: "Queensland",
             place2: "South Australia"));
-        csp?.addConstraint(MapColoringConstraint<String, String>(place1: "Queensland", place2: "New South Wales"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "New South Wales", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Victoria", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint<String, String>(place1: "Victoria",place2: "New South Wales"));
+        csp?.addConstraint(MapColoringConstraint(place1: "Queensland", place2: "New South Wales"));
+        csp?.addConstraint( MapColoringConstraint(place1: "New South Wales", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint(place1: "Victoria", place2: "South Australia"));
+        csp?.addConstraint( MapColoringConstraint(place1: "Victoria",place2: "New South Wales"));
     }
     
     override func tearDown() {

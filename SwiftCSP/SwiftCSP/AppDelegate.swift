@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func solve(sender: AnyObject) {
         //create the CSP
         var variables = circuitBoards
-        var domains: Dictionary<CircuitBoard, [(Int, Int)]>  = Dictionary<CircuitBoard, [(Int, Int)]>()
+        var domains: Dictionary<CircuitBoard, [(Int, Int)]> = Dictionary<CircuitBoard, [(Int, Int)]>()
         for variable in variables {
             domains[variable] = variable.generateDomain(boardWidth, boardHeight: boardHeight)
         }
@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //add constraints
         for i in 0..<variables.count {
             for j in (i+1)..<variables.count {
-                let cbconst = CircuitBoardConstraint<CircuitBoard, (Int, Int)>(variable1: variables[i], variable2: variables[j])
+                let cbconst = CircuitBoardConstraint(variable1: variables[i], variable2: variables[j])
                 cb_csp.addConstraint(cbconst)
                 //println(cbconst.variable1.width)
                 //println(cbconst.variable2.width)

@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class EightQueensConstraint<V, D>: ListConstraint <Int, Int> {
+class EightQueensConstraint: ListConstraint <Int, Int> {
     
     override init(variables: [Int]) {
         super.init(variables: variables)
@@ -109,7 +109,7 @@ class EightQueensTest: XCTestCase {
         }
         
         csp = CSP<Int, Int>(variables: variables, domains: domains)
-        let smmc = EightQueensConstraint<Int, Int>(variables: variables)
+        let smmc = EightQueensConstraint(variables: variables)
         csp?.addConstraint(smmc)
         
     }

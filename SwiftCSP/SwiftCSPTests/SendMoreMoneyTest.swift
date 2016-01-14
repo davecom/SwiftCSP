@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class SendMoreMoneyConstraint<V, D>: ListConstraint <String, Int> {
+class SendMoreMoneyConstraint: ListConstraint <String, Int> {
     
     override init(variables: [String]) {
         super.init(variables: variables)
@@ -76,7 +76,7 @@ class SendMoreMoneyTest: XCTestCase {
         domains["M"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         
         csp = CSP<String, Int>(variables: variables, domains: domains)
-        let smmc = SendMoreMoneyConstraint<String, Int>(variables: variables)
+        let smmc = SendMoreMoneyConstraint(variables: variables)
         csp?.addConstraint(smmc)
         
     }

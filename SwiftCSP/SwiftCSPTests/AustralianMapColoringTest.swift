@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class MapColoringConstraint: BinaryConstraint <String, String> {
+final class MapColoringConstraint: BinaryConstraint <String, String> {
     
     init(place1: String, place2: String) {
         super.init(variable1: place1, variable2: place2)

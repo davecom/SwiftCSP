@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class SendMoreMoneyConstraint: ListConstraint <String, Int> {
+final class SendMoreMoneyConstraint: ListConstraint <String, Int> {
     
     override init(variables: [String]) {
         super.init(variables: variables)

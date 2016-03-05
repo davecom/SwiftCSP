@@ -27,7 +27,7 @@
 import Cocoa
 import XCTest
 
-class EightQueensConstraint: ListConstraint <Int, Int> {
+final class EightQueensConstraint: ListConstraint <Int, Int> {
     
     override init(variables: [Int]) {
         super.init(variables: variables)

@@ -62,8 +62,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
                 
                 if (result != False) return result; */
             } else {
-                let result = backtrackingSearch(csp, assignment: localAssignment, mrv: mrv, mac3: mac3, lcv: lcv);
-                if (result != nil) {
+                if let result = backtrackingSearch(csp, assignment: localAssignment, mrv: mrv, mac3: mac3, lcv: lcv) {
                     return result
                 }
             }
@@ -93,20 +92,16 @@ func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>
         //get the one with the biggest domain
         var maxRemainingValues: Int = 0
         var maxVariable: V = csp.variables.first!
-        for variable in csp.variables {
-            if assignment[variable] == nil {
-                if csp.domains[variable]!.count > maxRemainingValues {
-                    maxRemainingValues = csp.domains[variable]!.count
-                    maxVariable = variable
-                }
+        for variable in csp.variables where assignment[variable] == nil {
+            if csp.domains[variable]!.count > maxRemainingValues {
+                maxRemainingValues = csp.domains[variable]!.count
+                maxVariable = variable
             }
         }
         return maxVariable
     } else { //if not just pick the first one that comes up
-        for variable in csp.variables {
-            if assignment[variable] == nil {
-                return variable
-            }
+        for variable in csp.variables where assignment[variable] == nil {
+            return variable
         }
     }
     print("No unassigned variables")

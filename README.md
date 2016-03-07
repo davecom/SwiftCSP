@@ -31,7 +31,7 @@ for variable in variables {
   }
 }
         
-csp = CSP<Int, Int>(variables: variables, domains: domains)  // initialize the previousl defined CSP
+csp = CSP<Int, Int>(variables: variables, domains: domains)  // initialize the previously defined CSP
 // Note that we specified through generics that its variables and domain are of type Int
 let smmc = EightQueensConstraint(variables: variables) // create a custom constraint
 // note that once again we specified both the variables and domain are of type Int

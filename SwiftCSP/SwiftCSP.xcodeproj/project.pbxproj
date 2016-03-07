@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		55047EAB1B6158BB00309A30 /* Backtrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Backtrack.swift; path = ../Source/Backtrack.swift; sourceTree = "<group>"; };
+		55047EAB1B6158BB00309A30 /* Backtrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Backtrack.swift; path = ../Sources/Backtrack.swift; sourceTree = "<group>"; };
 		55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoreMoneyTest.swift; sourceTree = "<group>"; };
 		550E6AFA1B604AF500CDE757 /* SwiftCSP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCSP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		550E6AFE1B604AF500CDE757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,8 +44,8 @@
 		550E6B041B604AF500CDE757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		550E6B0A1B604AF500CDE757 /* SwiftCSPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCSPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550E6B0F1B604AF500CDE757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = ../Source/CSP.swift; sourceTree = "<group>"; };
-		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = ../Source/Constraint.swift; sourceTree = "<group>"; };
+		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = ../Sources/CSP.swift; sourceTree = "<group>"; };
+		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = ../Sources/Constraint.swift; sourceTree = "<group>"; };
 		55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AustralianMapColoringTest.swift; sourceTree = "<group>"; };
 		55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightQueensTest.swift; sourceTree = "<group>"; };
 		55CD29191B63339B00DF47C5 /* CircuitBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitBoard.swift; sourceTree = "<group>"; };

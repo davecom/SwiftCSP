@@ -4,7 +4,7 @@
 //
 // The SwiftCSP License (MIT)
 //
-// Copyright (c) 2015 David Kopec
+// Copyright (c) 2015-2016 David Kopec
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

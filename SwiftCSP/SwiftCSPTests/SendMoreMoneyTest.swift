@@ -43,8 +43,8 @@ final class SendMoreMoneyConstraint: ListConstraint <String, Int> {
         // if all variables have been assigned, check if it adds up correctly
         if assignment.count == variables.count {
             if let s = assignment["S"], e = assignment["E"], n = assignment["N"], d = assignment["D"], m = assignment["M"], o = assignment["O"], r = assignment["R"], y = assignment["Y"] {
-                let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
-                let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
+                let send: Int = s * 1000 + e * 100 + n * 10 + d
+                let more: Int = m * 1000 + o * 100 + r * 10 + e
                 let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
                 if (send + more) == money {
                     return true;
@@ -93,8 +93,8 @@ class SendMoreMoneyTest: XCTestCase {
                 print(solution, terminator: "")
                 
                 if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {
-                    let send: Int = s * Int(1000) + e * Int(100) + n * Int(10) + d
-                    let more: Int = m * Int(1000) + o * Int(100) + r * Int(10) + e
+                    let send: Int = s * 1000 + e * 100 + n * 10 + d
+                    let more: Int = m * 1000 + o * 100 + r * 10 + e
                     let money: Int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
                     print("\(send) + \(more) = \(money)", terminator: "")
                     XCTAssertEqual((send + more), money, "Pass")

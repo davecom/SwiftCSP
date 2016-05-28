@@ -50,7 +50,7 @@ public struct CSP <V: Hashable, D> {
     /// - parameter constraint: The constraint to add.
     public mutating func addConstraint(constraint: Constraint<V, D>) {
         for variable in constraint.vars {
-            if variables.indexOf(variable) == nil {
+            if !variables.contains(variable) {
                 print("Error: Could not find variable \(variable) from constraint \(constraint) in CSP.", terminator: "")
             }
             constraints[variable]?.append(constraint)

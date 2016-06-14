@@ -34,15 +34,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let boardWidth: Int = 20
     let boardHeight: Int = 20
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-    @IBAction func solve(sender: AnyObject) {
+    @IBAction func solve(_ sender: AnyObject) {
         //create the CSP
         var variables = circuitBoards
         var domains: Dictionary<CircuitBoard, [(Int, Int)]> = Dictionary<CircuitBoard, [(Int, Int)]>()
@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let nsa: NSAlert = NSAlert()
             nsa.messageText = "No Solution"
             nsa.informativeText = "Couldn't find a way to layout all circuit boards."
-            nsa.beginSheetModalForWindow(window, completionHandler: { (_) -> Void in
+            nsa.beginSheetModal(for: window, completionHandler: { (_) -> Void in
                 return
             })
 

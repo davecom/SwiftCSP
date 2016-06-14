@@ -32,7 +32,7 @@
 /// - parameter lcv: SHould it use the lcv heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
 /// - parameter mac3: SHould it use the mac3 heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
 /// - returns: the assignment (solution), or nil if none can be found
-public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false, lcv: Bool = false, mac3: Bool = false) -> Dictionary<V, D>?
+public func backtrackingSearch<V, D>(_ csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false, lcv: Bool = false, mac3: Bool = false) -> Dictionary<V, D>?
 {
     // assignment is complete if it has as many assignments as there are variables
     if assignment.count == csp.variables.count { return assignment }
@@ -75,7 +75,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
 }
 
 /// check if the value assignment is consistent by checking all constraints of the variable
-func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
+func isConsistent<V, D>(_ variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
     for constraint in csp.constraints[variable]! {  //assume there are constraints for every variable
         if !constraint.isSatisfied(assignment) {
             return false
@@ -86,7 +86,7 @@ func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp
 
 /// Return an unassigned variable - we may want to use some logic here to return the
 /// minimum-remaining values
-func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>, mrv: Bool) -> V {
+func selectUnassignedVariable<V, D>(_ csp: CSP<V, D>, assignment: Dictionary<V, D>, mrv: Bool) -> V {
     // do we want to use the mrv heuristic
     if (mrv) {
         //get the one with the biggest domain
@@ -109,7 +109,7 @@ func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>
 }
 
 /// get the domain variables in a good order
-func orderDomainValues<V, D>(variable: V, assignment: Dictionary<V,D>, csp: CSP<V,D>, lcv: Bool) -> [D] {
+func orderDomainValues<V, D>(_ variable: V, assignment: Dictionary<V,D>, csp: CSP<V,D>, lcv: Bool) -> [D] {
     return csp.domains[variable]!  //asume there is a domain for every variable
     /*if lcv {  //not implemented yet
         /*// currently works only for binary constraints

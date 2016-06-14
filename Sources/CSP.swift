@@ -48,7 +48,7 @@ public struct CSP <V: Hashable, D> {
     /// Add a constraint to the CSP. It will automatically be applied to all the variables it includes. It should only include variables actually in the CSP.
     ///
     /// - parameter constraint: The constraint to add.
-    public mutating func addConstraint(constraint: Constraint<V, D>) {
+    public mutating func addConstraint(_ constraint: Constraint<V, D>) {
         for variable in constraint.vars {
             if !variables.contains(variable) {
                 print("Error: Could not find variable \(variable) from constraint \(constraint) in CSP.", terminator: "")

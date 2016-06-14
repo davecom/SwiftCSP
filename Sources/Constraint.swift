@@ -32,7 +32,7 @@ public class Constraint <V: Hashable, D> {
     ///
     /// - parameter assignment: Potential domain selections for variables that are part of the constraint.
     /// - returns: Whether the constraint is satisfied.
-    public func isSatisfied(assignment: Dictionary<V, D>) -> Bool {
+    public func isSatisfied(_ assignment: Dictionary<V, D>) -> Bool {
         return true
     }
     /// The variables that make up the constraint.

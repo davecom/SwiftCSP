@@ -33,7 +33,7 @@ final class SendMoreMoneyConstraint: ListConstraint <String, Int> {
         super.init(variables: variables)
     }
     
-    override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
+    override func isSatisfied(_ assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
         let d = Set<Int>(assignment.values)
         if d.count < assignment.count {
@@ -73,7 +73,7 @@ class SendMoreMoneyTest: XCTestCase {
             domains[variable] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         }
         domains["S"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        domains["M"] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        domains["M"] = [1]
         
         csp = CSP<String, Int>(variables: variables, domains: domains)
         let smmc = SendMoreMoneyConstraint(variables: variables)

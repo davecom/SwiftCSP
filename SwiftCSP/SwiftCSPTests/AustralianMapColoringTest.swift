@@ -33,7 +33,7 @@ final class MapColoringConstraint: BinaryConstraint <String, String> {
         super.init(variable1: place1, variable2: place2)
     }
     
-    override func isSatisfied(assignment: Dictionary<String, String>) -> Bool {
+    override func isSatisfied(_ assignment: Dictionary<String, String>) -> Bool {
         // if either variable is not in the assignment then it must be consistent
         // since they still have their domain
         if assignment[variable1] == nil || assignment[variable2] == nil {

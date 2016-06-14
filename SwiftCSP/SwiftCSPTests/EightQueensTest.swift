@@ -33,41 +33,41 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
         super.init(variables: variables)
     }
     
-    override func isSatisfied(assignment: Dictionary<Int, Int>) -> Bool {
+    override func isSatisfied(_ assignment: Dictionary<Int, Int>) -> Bool {
         // not the most efficient check for attacking each other...
         // better to subtract one from the other and go from there
         for q in assignment.values {
             for i in (q - (q % 8))..<q{ //same file backwards
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
             for i in (q + 1)...(q + (8 - (q % 8))) { //same file forwards
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q - 9).stride(through: 0, by: -9) { // diagonal up and back
+            for i in stride(from: (q - 9), through: 0, by: -9) { // diagonal up and back
                 guard q % 8 > i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q - 7).stride(through: 0, by: -7) { // diagonal up and forward
+            for i in stride(from: (q - 7), through: 0, by: -7) { // diagonal up and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q + 7).stride(to: 64, by: 7) { // diagonal down and back
+            for i in stride(from: (q + 7), to: 64, by: 7) { // diagonal down and back
                 guard i % 8 < q % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q + 9).stride(to: 64, by: 9) { // diagonal down and forward
+            for i in stride(from: (q + 9), to: 64, by: 9) { // diagonal down and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
@@ -78,10 +78,10 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
     }
 }
 
-func drawQueens(solution: Dictionary<Int, Int>) {
+func drawQueens(_ solution: Dictionary<Int, Int>) {
     var output = "\n"
     for i in 0..<64 {
-        if (solution.values.indexOf(i) != nil) {
+        if (solution.values.index(of: i) != nil) {
             output += "Q"
         } else {
             output += "X"
@@ -103,7 +103,7 @@ class EightQueensTest: XCTestCase {
         var domains = Dictionary<Int, [Int]>()
         for variable in variables {
             domains[variable] = []
-            for i in variable.stride(to: 64, by: 8) {
+            for i in stride(from: variable, to: 64, by: 8) {
                 domains[variable]?.append(i)
             }
         }

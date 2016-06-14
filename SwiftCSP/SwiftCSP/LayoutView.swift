@@ -30,8 +30,8 @@ class LayoutView: NSView {
     let boxDimension: Int = 20
     var circuitBoards: [CircuitBoard] = []
     
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
 
         // Drawing code here.
         let width = Int(self.frame.size.width)
@@ -50,15 +50,15 @@ class LayoutView: NSView {
         let bPath:NSBezierPath = NSBezierPath()
         
         for i in 0...boxDimension {
-            bPath.moveToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(0)))
-            bPath.lineToPoint(NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(height)))
+            bPath.move(to: NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(0)))
+            bPath.line(to: NSMakePoint(CGFloat((width/boxDimension) * i), CGFloat(height)))
         }
         for i in 0...boxDimension {
-            bPath.moveToPoint(NSMakePoint(CGFloat(0), CGFloat((height/boxDimension) * i)))
-            bPath.lineToPoint(NSMakePoint(CGFloat(width), CGFloat((height/boxDimension) * i)))
+            bPath.move(to: NSMakePoint(CGFloat(0), CGFloat((height/boxDimension) * i)))
+            bPath.line(to: NSMakePoint(CGFloat(width), CGFloat((height/boxDimension) * i)))
         }
         
-        NSColor.blackColor().set()
+        NSColor.black().set()
         bPath.stroke()
         
     }

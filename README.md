@@ -4,7 +4,7 @@ SwiftCSP is a constraint satisfaction problem solver written in pure Swift (no C
 A [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) is a problem composed of *variables* that have possible values (*domains*) and *constraints* on what those values can be. A solver finds a potential solution to that problem by selecting values from the domains of each variable that fit the constraints. For more information you should checkout Chapter 6 of Artificial Intelligence: A Modern Approach (Third Edition) by Norvig and Russell.
 
 ## Installation
-Use the cocoapod `SwiftCSP` or include the files in the Sources directory (`CSP.swift`, `Constraint.swift`, and `Backtrack.swift`) in your project. Alternatively, you can also install SwiftCSP through the Swift Package Manager (SPM) by pointing to this repository. SwiftCSP release 0.9.2 and above supports Swift 2. For Swift 1.2 support use release 0.9 on CocoaPods or 0.9.1 on GitHub.
+Use the cocoapod `SwiftCSP` or include the files in the Sources directory (`CSP.swift`, `Constraint.swift`, and `Backtrack.swift`) in your project. Alternatively, you can also install SwiftCSP through the Swift Package Manager (SPM) by pointing to this repository. SwiftCSP release 0.9.2 and above supports Swift 2. For Swift 1.2 support use release 0.9 on CocoaPods or 0.9.1 on GitHub. For Swift 3 support checkout the swift3 branch.
 
 ## Examples/Unit Tests
 The unit tests included with the project are also well known toy problems including:

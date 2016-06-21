@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var variables = circuitBoards
         var domains: Dictionary<CircuitBoard, [(Int, Int)]> = Dictionary<CircuitBoard, [(Int, Int)]>()
         for variable in variables {
-            domains[variable] = variable.generateDomain(boardWidth, boardHeight: boardHeight)
+            domains[variable] = variable.generateDomain(boardWidth: boardWidth, boardHeight: boardHeight)
         }
         
         var cb_csp: CSP<CircuitBoard, (Int, Int)> = CSP<CircuitBoard, (Int, Int)>(variables: variables, domains: domains)
@@ -56,14 +56,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for i in 0..<variables.count {
             for j in (i+1)..<variables.count {
                 let cbconst = CircuitBoardConstraint(variable1: variables[i], variable2: variables[j])
-                cb_csp.addConstraint(cbconst)
+                cb_csp.addConstraint(constraint: cbconst)
                 //println(cbconst.variable1.width)
                 //println(cbconst.variable2.width)
             }
         }
         
         //run the solution and calculate the time it took
-        if let solution = backtrackingSearch(cb_csp, mrv: true) {
+        if let solution = backtrackingSearch(csp: cb_csp, mrv: true) {
             for (variable, location) in solution {
                 variable.location = location
             }

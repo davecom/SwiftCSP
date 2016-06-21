@@ -35,7 +35,7 @@ class CircuitBoardConstraint: BinaryConstraint<CircuitBoard, (Int, Int)> {
         //println(self.variable2.width)
     }
     
-    override func isSatisfied(_ assignment: Dictionary<CircuitBoard, (Int, Int)>) -> Bool {
+    override func isSatisfied(assignment: Dictionary<CircuitBoard, (Int, Int)>) -> Bool {
         //if either variable is not in the assignment then it must be consistent
         //since they still have their domain
         if assignment[variable1] == nil || assignment[variable2] == nil {

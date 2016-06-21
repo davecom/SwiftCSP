@@ -33,7 +33,7 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
         super.init(variables: variables)
     }
     
-    override func isSatisfied(_ assignment: Dictionary<Int, Int>) -> Bool {
+    override func isSatisfied(assignment: Dictionary<Int, Int>) -> Bool {
         // not the most efficient check for attacking each other...
         // better to subtract one from the other and go from there
         for q in assignment.values {
@@ -78,7 +78,7 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
     }
 }
 
-func drawQueens(_ solution: Dictionary<Int, Int>) {
+func drawQueens(solution: Dictionary<Int, Int>) {
     var output = "\n"
     for i in 0..<64 {
         if (solution.values.index(of: i) != nil) {
@@ -110,7 +110,7 @@ class EightQueensTest: XCTestCase {
         
         csp = CSP<Int, Int>(variables: variables, domains: domains)
         let smmc = EightQueensConstraint(variables: variables)
-        csp?.addConstraint(smmc)
+        csp?.addConstraint(constraint: smmc)
         
     }
     
@@ -122,9 +122,9 @@ class EightQueensTest: XCTestCase {
     func testSolution() {
         // This is an example of a functional test case.
         if let cs: CSP<Int, Int> = csp {
-            if let solution = backtrackingSearch(cs, mrv: true) {
+            if let solution = backtrackingSearch(csp: cs, mrv: true) {
                 print(solution, terminator: "")
-                drawQueens(solution)
+                drawQueens(solution: solution)
                 XCTAssertEqual(solution, [2: 58, 4: 20, 5: 53, 6: 14, 7: 31, 0: 0, 1: 33, 3: 43], "Pass")
             } else {
                 XCTFail("Fail")

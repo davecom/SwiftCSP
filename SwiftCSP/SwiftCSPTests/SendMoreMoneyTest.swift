@@ -33,7 +33,7 @@ final class SendMoreMoneyConstraint: ListConstraint <String, Int> {
         super.init(variables: variables)
     }
     
-    override func isSatisfied(_ assignment: Dictionary<String, Int>) -> Bool {
+    override func isSatisfied(assignment: Dictionary<String, Int>) -> Bool {
         // if there are duplicate values then it's not correct
         let d = Set<Int>(assignment.values)
         if d.count < assignment.count {
@@ -77,7 +77,7 @@ class SendMoreMoneyTest: XCTestCase {
         
         csp = CSP<String, Int>(variables: variables, domains: domains)
         let smmc = SendMoreMoneyConstraint(variables: variables)
-        csp?.addConstraint(smmc)
+        csp?.addConstraint(constraint: smmc)
         
     }
     
@@ -89,7 +89,7 @@ class SendMoreMoneyTest: XCTestCase {
     func testSolution() {
         // This is an example of a functional test case.
         if let cs: CSP<String, Int> = csp {
-            if let solution = backtrackingSearch(cs, mrv: true) {
+            if let solution = backtrackingSearch(csp: cs, mrv: true) {
                 print(solution, terminator: "")
                 
                 if let s = solution["S"], e = solution["E"], n = solution["N"], d = solution["D"], m = solution["M"], o = solution["O"], r = solution["R"], y = solution["Y"] {

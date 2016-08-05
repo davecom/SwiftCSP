@@ -62,7 +62,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
                 
                 if (result != False) return result; */
             } else {
-                if let result = backtrackingSearch(csp: csp, assignment: localAssignment, mrv: mrv, mac3: mac3, lcv: lcv) {
+                if let result = backtrackingSearch(csp: csp, assignment: localAssignment, mrv: mrv, lcv: lcv, mac3: mac3) {
                     return result
                 }
             }

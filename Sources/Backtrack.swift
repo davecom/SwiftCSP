@@ -89,16 +89,16 @@ func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp
 func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>, mrv: Bool) -> V {
     // do we want to use the mrv heuristic
     if (mrv) {
-        //get the one with the biggest domain
-        var maxRemainingValues: Int = 0
-        var maxVariable: V = csp.variables.first!
+        //get the one with the fewest remaining values
+        var minRemainingValues: Int = Int.max
+        var minVariable: V = csp.variables.first!
         for variable in csp.variables where assignment[variable] == nil {
-            if csp.domains[variable]!.count > maxRemainingValues {
-                maxRemainingValues = csp.domains[variable]!.count
-                maxVariable = variable
+            if csp.domains[variable]!.count < minRemainingValues {
+                minRemainingValues = csp.domains[variable]!.count
+                minVariable = variable
             }
         }
-        return maxVariable
+        return minVariable
     } else { //if not just pick the first one that comes up
         for variable in csp.variables where assignment[variable] == nil {
             return variable

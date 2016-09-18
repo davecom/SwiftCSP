@@ -29,7 +29,7 @@ import Cocoa
 class CircuitBoard: NSObject {  //get hashable for free and dynamic access
     var height: Int = 1
     var width: Int = 1
-    var color: NSColor = NSColor.red()
+    var color: NSColor = NSColor.red
     var location: (Int, Int)?
     
     //generate the domain as a list of tuples of bottom left corners

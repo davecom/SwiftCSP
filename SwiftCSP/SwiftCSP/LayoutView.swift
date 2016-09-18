@@ -58,7 +58,7 @@ class LayoutView: NSView {
             bPath.line(to: NSMakePoint(CGFloat(width), CGFloat((height/boxDimension) * i)))
         }
         
-        NSColor.black().set()
+        NSColor.black.set()
         bPath.stroke()
         
     }

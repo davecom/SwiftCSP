@@ -34,20 +34,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let boardWidth: Int = 20
     let boardHeight: Int = 20
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-    @IBAction func solve(sender: AnyObject) {
+    @IBAction func solve(_ sender: AnyObject) {
         //create the CSP
         var variables = circuitBoards
         var domains: Dictionary<CircuitBoard, [(Int, Int)]> = Dictionary<CircuitBoard, [(Int, Int)]>()
         for variable in variables {
-            domains[variable] = variable.generateDomain(boardWidth, boardHeight: boardHeight)
+            domains[variable] = variable.generateDomain(boardWidth: boardWidth, boardHeight: boardHeight)
         }
         
         var cb_csp: CSP<CircuitBoard, (Int, Int)> = CSP<CircuitBoard, (Int, Int)>(variables: variables, domains: domains)
@@ -56,14 +56,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for i in 0..<variables.count {
             for j in (i+1)..<variables.count {
                 let cbconst = CircuitBoardConstraint(variable1: variables[i], variable2: variables[j])
-                cb_csp.addConstraint(cbconst)
+                cb_csp.addConstraint(constraint: cbconst)
                 //println(cbconst.variable1.width)
                 //println(cbconst.variable2.width)
             }
         }
         
         //run the solution and calculate the time it took
-        if let solution = backtrackingSearch(cb_csp, mrv: true) {
+        if let solution = backtrackingSearch(csp: cb_csp, mrv: true) {
             for (variable, location) in solution {
                 variable.location = location
             }
@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let nsa: NSAlert = NSAlert()
             nsa.messageText = "No Solution"
             nsa.informativeText = "Couldn't find a way to layout all circuit boards."
-            nsa.beginSheetModalForWindow(window, completionHandler: { (_) -> Void in
+            nsa.beginSheetModal(for: window, completionHandler: { (_) -> Void in
                 return
             })
 

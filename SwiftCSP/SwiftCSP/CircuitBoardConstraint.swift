@@ -44,7 +44,7 @@ class CircuitBoardConstraint: BinaryConstraint<CircuitBoard, (Int, Int)> {
         //check that var1 does not overlap var2
         let rect1 = CGRect(x: assignment[variable1]!.0, y: assignment[variable1]!.1, width: variable1.width, height: variable1.height)
         let rect2 = CGRect(x: assignment[variable2]!.0, y: assignment[variable2]!.1, width: variable2.width, height: variable2.height)
-        return !CGRectIntersectsRect(rect1, rect2)
+        return !rect1.intersects(rect2)
         
     }
 }

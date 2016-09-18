@@ -58,16 +58,16 @@ class AustralianMapColoringTest: XCTestCase {
         }
         
         csp = CSP<String, String>(variables: variables, domains: domains)
-        csp?.addConstraint(MapColoringConstraint(place1: "Western Australia", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint(place1: "Western Australia", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint(place1: "South Australia", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint(place1: "Queensland", place2: "Northern Territory"));
-        csp?.addConstraint( MapColoringConstraint(place1: "Queensland",
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Western Australia", place2: "Northern Territory"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Western Australia", place2: "South Australia"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "South Australia", place2: "Northern Territory"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Queensland", place2: "Northern Territory"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Queensland",
             place2: "South Australia"));
-        csp?.addConstraint(MapColoringConstraint(place1: "Queensland", place2: "New South Wales"));
-        csp?.addConstraint( MapColoringConstraint(place1: "New South Wales", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint(place1: "Victoria", place2: "South Australia"));
-        csp?.addConstraint( MapColoringConstraint(place1: "Victoria",place2: "New South Wales"));
+        csp?.addConstraint(constraint:MapColoringConstraint(place1: "Queensland", place2: "New South Wales"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "New South Wales", place2: "South Australia"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Victoria", place2: "South Australia"));
+        csp?.addConstraint(constraint: MapColoringConstraint(place1: "Victoria",place2: "New South Wales"));
     }
     
     override func tearDown() {
@@ -82,7 +82,7 @@ class AustralianMapColoringTest: XCTestCase {
             return
         }
 
-        if let solution = backtrackingSearch(cs, mrv: false) {
+        if let solution = backtrackingSearch(csp: cs, mrv: false) {
             print(solution, terminator: "")
             XCTAssertEqual(solution, ["South Australia": "b", "New South Wales": "g", "Western Australia": "r", "Northern Territory": "g", "Victoria": "r", "Tasmania": "r", "Queensland": "r"], "Pass")
         } else {

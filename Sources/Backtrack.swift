@@ -38,16 +38,16 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
     if assignment.count == csp.variables.count { return assignment }
     
     // get a var to assign
-    let variable = selectUnassignedVariable(csp, assignment: assignment, mrv: mrv)
+    let variable = selectUnassignedVariable(csp: csp, assignment: assignment, mrv: mrv)
     
     // get the domain of it and try each value in the domain
-    for value in orderDomainValues(variable, assignment: assignment, csp: csp, lcv: lcv) {
+    for value in orderDomainValues(variable: variable, assignment: assignment, csp: csp, lcv: lcv) {
 
         // if the value is consistent with the current assignment we continue
         var localAssignment = assignment
         localAssignment[variable] = value
         //println(assignment)
-        if isConsistent(variable, value: value, assignment: localAssignment, csp: csp) {
+        if isConsistent(variable: variable, value: value, assignment: localAssignment, csp: csp) {
             //println("Found \(variable) with value \(value) and other assignment \(assignment) consistent")
             
             // do inferencing if we have that turned on
@@ -62,7 +62,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
                 
                 if (result != False) return result; */
             } else {
-                if let result = backtrackingSearch(csp, assignment: localAssignment, mrv: mrv, mac3: mac3, lcv: lcv) {
+                if let result = backtrackingSearch(csp: csp, assignment: localAssignment, mrv: mrv, lcv: lcv, mac3: mac3) {
                     return result
                 }
             }
@@ -77,7 +77,7 @@ public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D
 /// check if the value assignment is consistent by checking all constraints of the variable
 func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp: CSP<V,D>) -> Bool {
     for constraint in csp.constraints[variable]! {  //assume there are constraints for every variable
-        if !constraint.isSatisfied(assignment) {
+        if !constraint.isSatisfied(assignment: assignment) {
             return false
         }
     }
@@ -89,16 +89,16 @@ func isConsistent<V, D>(variable: V, value: D, assignment: Dictionary<V, D>, csp
 func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>, mrv: Bool) -> V {
     // do we want to use the mrv heuristic
     if (mrv) {
-        //get the one with the biggest domain
-        var maxRemainingValues: Int = 0
-        var maxVariable: V = csp.variables.first!
+        //get the one with the fewest remaining values
+        var minRemainingValues: Int = Int.max
+        var minVariable: V = csp.variables.first!
         for variable in csp.variables where assignment[variable] == nil {
-            if csp.domains[variable]!.count > maxRemainingValues {
-                maxRemainingValues = csp.domains[variable]!.count
-                maxVariable = variable
+            if csp.domains[variable]!.count < minRemainingValues {
+                minRemainingValues = csp.domains[variable]!.count
+                minVariable = variable
             }
         }
-        return maxVariable
+        return minVariable
     } else { //if not just pick the first one that comes up
         for variable in csp.variables where assignment[variable] == nil {
             return variable

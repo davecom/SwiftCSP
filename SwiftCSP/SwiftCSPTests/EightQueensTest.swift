@@ -38,36 +38,36 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
         // better to subtract one from the other and go from there
         for q in assignment.values {
             for i in (q - (q % 8))..<q{ //same file backwards
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
             for i in (q + 1)...(q + (8 - (q % 8))) { //same file forwards
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q - 9).stride(through: 0, by: -9) { // diagonal up and back
+            for i in stride(from: (q - 9), through: 0, by: -9) { // diagonal up and back
                 guard q % 8 > i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q - 7).stride(through: 0, by: -7) { // diagonal up and forward
+            for i in stride(from: (q - 7), through: 0, by: -7) { // diagonal up and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q + 7).stride(to: 64, by: 7) { // diagonal down and back
+            for i in stride(from: (q + 7), to: 64, by: 7) { // diagonal down and back
                 guard i % 8 < q % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
-            for i in (q + 9).stride(to: 64, by: 9) { // diagonal down and forward
+            for i in stride(from: (q + 9), to: 64, by: 9) { // diagonal down and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.indexOf(i) != nil {
+                if assignment.values.index(of: i) != nil {
                     return false
                 }
             }
@@ -81,7 +81,7 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
 func drawQueens(solution: Dictionary<Int, Int>) {
     var output = "\n"
     for i in 0..<64 {
-        if (solution.values.indexOf(i) != nil) {
+        if (solution.values.index(of: i) != nil) {
             output += "Q"
         } else {
             output += "X"
@@ -103,14 +103,14 @@ class EightQueensTest: XCTestCase {
         var domains = Dictionary<Int, [Int]>()
         for variable in variables {
             domains[variable] = []
-            for i in variable.stride(to: 64, by: 8) {
+            for i in stride(from: variable, to: 64, by: 8) {
                 domains[variable]?.append(i)
             }
         }
         
         csp = CSP<Int, Int>(variables: variables, domains: domains)
         let smmc = EightQueensConstraint(variables: variables)
-        csp?.addConstraint(smmc)
+        csp?.addConstraint(constraint: smmc)
         
     }
     
@@ -122,9 +122,9 @@ class EightQueensTest: XCTestCase {
     func testSolution() {
         // This is an example of a functional test case.
         if let cs: CSP<Int, Int> = csp {
-            if let solution = backtrackingSearch(cs, mrv: true) {
+            if let solution = backtrackingSearch(csp: cs, mrv: true) {
                 print(solution, terminator: "")
-                drawQueens(solution)
+                drawQueens(solution: solution)
                 XCTAssertEqual(solution, [2: 58, 4: 20, 5: 53, 6: 14, 7: 31, 0: 0, 1: 33, 3: 43], "Pass")
             } else {
                 XCTFail("Fail")

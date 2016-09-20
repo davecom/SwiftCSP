@@ -27,7 +27,7 @@
 
 /// The base class of all constraints. It usually makes more sense to override one of the canonical subclasses
 /// *UnaryConstraint*, *BinaryConstraint*, and *ListConstraint*. V is the type of the variables, and D is the type of the domains.
-public class Constraint <V: Hashable, D> {
+open class Constraint <V: Hashable, D> {
     /// All subclasses should override this method. It defines whether a constraint has successfully been satisfied.
     ///
     /// - parameter assignment: Potential domain selections for variables that are part of the constraint.
@@ -40,7 +40,7 @@ public class Constraint <V: Hashable, D> {
 }
 
 /// A constraint on a single variable.
-public class UnaryConstraint<V: Hashable, D> : Constraint <V, D> {
+open class UnaryConstraint<V: Hashable, D> : Constraint <V, D> {
     /// The constrained variable.
     public let variable: V
     
@@ -54,7 +54,7 @@ public class UnaryConstraint<V: Hashable, D> : Constraint <V, D> {
 }
 
 /// A constraint between two variables.
-public class BinaryConstraint<V: Hashable, D> : Constraint <V, D> {
+open class BinaryConstraint<V: Hashable, D> : Constraint <V, D> {
     /// The first variable
     public let variable1: V
     /// The second variable
@@ -71,7 +71,7 @@ public class BinaryConstraint<V: Hashable, D> : Constraint <V, D> {
 }
 
 /// A constraint between any number of variables
-public class ListConstraint<V: Hashable, D> : Constraint <V, D> {
+open class ListConstraint<V: Hashable, D> : Constraint <V, D> {
     /// The constrained variables
     public let variables: [V]
     

@@ -1,3 +1,6 @@
+###0.9.5
+- Swift 3 Support
+
 ###0.9.4
 - SPM support
 - Made example constraints non-generic

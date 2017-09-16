@@ -42,7 +42,7 @@ class LayoutView: NSView {
             if let loc = board.location {
                 board.color.set()
                 let rect = CGRect(x: Int(loc.0 * (width/boxDimension)), y: Int(loc.1 * (height/boxDimension)), width: Int(board.width * (width/boxDimension)), height: Int(board.height * (height/boxDimension)))
-                NSRectFill(rect)
+                rect.fill()
             }
         }
         

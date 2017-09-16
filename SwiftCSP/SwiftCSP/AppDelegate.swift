@@ -30,7 +30,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var layoutView: LayoutView!
-    var circuitBoards: [CircuitBoard] = []
+    @objc var circuitBoards: [CircuitBoard] = []
     let boardWidth: Int = 20
     let boardHeight: Int = 20
 

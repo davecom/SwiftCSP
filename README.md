@@ -9,7 +9,7 @@ Use the cocoapod `SwiftCSP` or include the files in the Sources directory (`CSP.
 ## Examples/Unit Tests
 The unit tests included with the project are also well known toy problems including:
 - [The Australian Map Coloring Problem](https://en.wikipedia.org/wiki/Four_color_theorem)
-- [Send + More = Money](https://en.wikipedia.org/wiki/Verbal_arithmetic) Note this currently takes ~25 seconds to execute.
+- [Send + More = Money](https://en.wikipedia.org/wiki/Verbal_arithmetic) Note this currently takes ~5 seconds to execute.
 - [Eight Queens Problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
 
 Looking at them should give you a good idea about how to use the library. In addition, the program included in the main project is a nice graphical example of the circuit board layout problem (it's also a great example of Cocoa Bindings on OS X).

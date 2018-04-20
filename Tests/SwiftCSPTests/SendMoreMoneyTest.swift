@@ -24,8 +24,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Cocoa
+
 import XCTest
+@testable import SwiftCSP
 
 final class SendMoreMoneyConstraint: ListConstraint <String, Int> {
     
@@ -107,5 +108,9 @@ class SendMoreMoneyTest: XCTestCase {
         } else {
             XCTFail("Fail")
         }
-    }    
+    }
+    
+    static var allTests = [
+        ("testSolution", testSolution)
+    ]
 }

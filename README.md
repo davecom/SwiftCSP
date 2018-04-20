@@ -1,15 +1,23 @@
 # SwiftCSP
+
+[![Swift Versions](https://img.shields.io/badge/Swift-1%2C2%2C3%2C4-green.svg)](https://swift.org)
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/SwiftCSP.svg)](https://cocoapods.org/pods/SwiftCSP)
+[![SPM Compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
+[![CocoaPods Platforms](https://img.shields.io/cocoapods/p/SwiftCSP.svg)](https://cocoapods.org/pods/SwiftCSP)
+[![Linux Compatible](https://img.shields.io/badge/Linux-compatible-4BC51D.svg?style=flat)](https://swift.org)
+[![Twitter Contact](https://img.shields.io/badge/contact-@davekopec-blue.svg?style=flat)](https://twitter.com/davekopec)
+
 SwiftCSP is a constraint satisfaction problem solver written in pure Swift (no Cocoa). It utilizes a simple backtracking algorithm with plans for future optimizations. At this stage of development, it's fairly slow but it includes examples of solving actual problems. It should run on all Swift platforms (iOS, OS X, Linux, tvOS, etc.).
 
 A [constraint satisfaction problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) is a problem composed of *variables* that have possible values (*domains*) and *constraints* on what those values can be. A solver finds a potential solution to that problem by selecting values from the domains of each variable that fit the constraints. For more information you should checkout Chapter 6 of Artificial Intelligence: A Modern Approach (Third Edition) by Norvig and Russell.
 
 ## Installation
-Use the cocoapod `SwiftCSP` or include the files in the Sources directory (`CSP.swift`, `Constraint.swift`, and `Backtrack.swift`) in your project. Alternatively, you can also install SwiftCSP through the Swift Package Manager (SPM) by pointing to this repository. Release 0.9.5 and above requires Swift 3. Use release 0.9.4 for Swift 2 support. For Swift 1.2 support use release 0.9 on CocoaPods or 0.9.1 on GitHub.
+Use the cocoapod `SwiftCSP` or include the files in the Sources directory (`CSP.swift`, `Constraint.swift`, and `Backtrack.swift`) in your project. Alternatively, you can also install SwiftCSP through the Swift Package Manager (SPM) by pointing to this repository. Release 0.9.6 and above requires Swift 4. Use release 0.9.5 for Swift 3 support. Use release 0.9.4 for Swift 2 support. For Swift 1.2 support use release 0.9 on CocoaPods or 0.9.1 on GitHub.
 
 ## Examples/Unit Tests
 The unit tests included with the project are also well known toy problems including:
 - [The Australian Map Coloring Problem](https://en.wikipedia.org/wiki/Four_color_theorem)
-- [Send + More = Money](https://en.wikipedia.org/wiki/Verbal_arithmetic) Note this currently takes ~25 seconds to execute.
+- [Send + More = Money](https://en.wikipedia.org/wiki/Verbal_arithmetic)
 - [Eight Queens Problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
 
 Looking at them should give you a good idea about how to use the library. In addition, the program included in the main project is a nice graphical example of the circuit board layout problem (it's also a great example of Cocoa Bindings on OS X).

@@ -1,3 +1,6 @@
+### 0.9.7
+- Swift 5 Support
+
 ### 0.9.6
 - Swift 4 Support
 - Linux Testing Support

@@ -4,7 +4,7 @@
 //
 // The SwiftCSP License (MIT)
 //
-// Copyright (c) 2015-2016 David Kopec
+// Copyright (c) 2015-2019 David Kopec
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -38,36 +38,36 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
         // better to subtract one from the other and go from there
         for q in assignment.values {
             for i in (q - (q % 8))..<q{ //same file backwards
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
             for i in (q + 1)...(q + (8 - (q % 8))) { //same file forwards
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
             for i in stride(from: (q - 9), through: 0, by: -9) { // diagonal up and back
                 guard q % 8 > i % 8 else { break }
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
             for i in stride(from: (q - 7), through: 0, by: -7) { // diagonal up and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
             for i in stride(from: (q + 7), to: 64, by: 7) { // diagonal down and back
                 guard i % 8 < q % 8 else { break }
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
             for i in stride(from: (q + 9), to: 64, by: 9) { // diagonal down and forward
                 guard q % 8 < i % 8 else { break }
-                if assignment.values.index(of: i) != nil {
+                if assignment.values.firstIndex(of: i) != nil {
                     return false
                 }
             }
@@ -81,7 +81,7 @@ final class EightQueensConstraint: ListConstraint <Int, Int> {
 func drawQueens(solution: Dictionary<Int, Int>) {
     var output = "\n"
     for i in 0..<64 {
-        if (solution.values.index(of: i) != nil) {
+        if (solution.values.firstIndex(of: i) != nil) {
             output += "Q"
         } else {
             output += "X"

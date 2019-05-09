@@ -1,3 +1,7 @@
+### 0.9.8
+- LCV Heuristic
+- Changed to Apache License
+
 ### 0.9.7
 - Swift 5 Support
 

@@ -2,27 +2,19 @@
 //  Backtrack.swift
 //  SwiftCSP
 //
-// The SwiftCSP License (MIT)
+//  Copyright (c) 2015-2019 David Kopec
 //
-// Copyright (c) 2015-2019 David Kopec
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  http://www.apache.org/licenses/LICENSE-2.0
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 
 /// the meat of the backtrack algorithm - a recursive depth first search
 /// 
@@ -110,27 +102,29 @@ func selectUnassignedVariable<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D>
 
 /// get the domain variables in a good order
 func orderDomainValues<V, D>(variable: V, assignment: Dictionary<V,D>, csp: CSP<V,D>, lcv: Bool) -> [D] {
-    return csp.domains[variable]!  //asume there is a domain for every variable
-    /*if lcv {  //not implemented yet
-        /*// currently works only for binary constraints
-        // dictionary that we'll sort by the key - the number of constraints
-        Map newOrder = {};
-        // go through the constraints of the var for each value
-        for (var val in csp.domains[variable]) {
-        int constraintCount = 0;
-        for (var constraint in csp.constraints[variable]) {
-        var variableOfInterest = constraint.variable1;
-        if (constraint.variable1 == variable) variableOfInterest = constraint.variable2;
-        if (csp.domains[variableOfInterest].contains(val)) constraintCount ++;
-        newOrder[val] = constraintCount;
+    guard let domain = csp.domains[variable] else { return [] }
+    if lcv {
+        var domainValueCounts: [UInt] = [UInt](repeating: 0, count: domain.count)
+        for (index, domainValue) in domain.enumerated() {
+            for constraint in csp.constraints[variable] ?? [] {
+                let constraintVariables = constraint.vars.filter{ $0 != variable }
+                for constraintVariable in constraintVariables where assignment[constraintVariable] == nil {
+                    for cvDomainValue in csp.domains[constraintVariable] ?? [] {
+                        var testAssignment = assignment
+                        testAssignment[variable] = domainValue
+                        testAssignment[constraintVariable] = cvDomainValue
+                        if constraint.isSatisfied(assignment: testAssignment) {
+                            domainValueCounts[index] += 1
+                        }
+                    }
+                }
+            }
         }
-        // sort by the constraint_count and return the lowest ones first
-        List valList = [];
-        for pair in sorted(new_order.items(), key=itemgetter(1)):
-        val_list.append(pair[0])
-        return val_list */
+        // use zip to combine the two arrays and sort that based on the first
+        let combined = zip(domainValueCounts, domain).sorted {$0.0 > $1.0}
+        return combined.map{ $0.1 } // return sorted order based on least constraining value
     } else {
-        // no logic right now just return the domain
-        return csp.domains[variable]! //assume there is a domain for every variable
-    }*/
+        // return the domain in its original order
+        return domain
+    }
 }

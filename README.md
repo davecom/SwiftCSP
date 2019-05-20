@@ -62,4 +62,4 @@ SwiftCSP makes extensive use of generics. It seems like a lot of unnecessary ang
 Contributions that implement heuristics, improve performance in other ways, or simplify the design are more than welcome. Just make sure all of the unit tests still run and the new version maintains the flexibility of having any `Hashable` type as a variable and any type as a `Domain`. Additional unit tests are also welcome.
 
 ## Authorship and License
-SwiftCSP was written by David Kopec and released under the MIT License (see `LICENSE`). It was originally a port of a Dart library I wrote called [constraineD](https://github.com/davecom/constraineD) which itself was a port of a Python library I wrote many years before that.
+SwiftCSP was written by David Kopec and released under the Apache License (see `LICENSE`). It was originally a port of a Dart library I wrote called [constraineD](https://github.com/davecom/constraineD) which itself was a port of a Python library I wrote many years before that.

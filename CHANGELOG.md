@@ -1,6 +1,7 @@
 ### 0.9.8
 - LCV Heuristic
 - Changed to Apache License
+- Fixed a critical bug—`isSatisfied()` is now `open` thanks @Mighto360
 
 ### 0.9.7
 - Swift 5 Support

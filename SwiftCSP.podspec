@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.authors          = { 'David Kopec' => 'david@oaksnow.com' }
   s.source           = { :git => 'https://github.com/davecom/SwiftCSP.git', :tag => s.version }
   s.swift_versions = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5', '5.6']
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '10.0'
   s.watchos.deployment_target = '2.0'

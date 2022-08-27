@@ -17,6 +17,9 @@
 		550E6B1D1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1C1B604E9600CDE757 /* Constraint.swift */; };
 		550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E6B1A1B604CC400CDE757 /* CSP.swift */; };
+		551266B828B555CE00F13BFC /* MinConflicts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551266B728B555CE00F13BFC /* MinConflicts.swift */; };
+		551266B928B555CE00F13BFC /* MinConflicts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551266B728B555CE00F13BFC /* MinConflicts.swift */; };
+		551266BB28B9515800F13BFC /* SudokuTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551266BA28B9515800F13BFC /* SudokuTest.swift */; };
 		55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */; };
 		55CD29181B6327CA00DF47C5 /* EightQueensTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */; };
 		55CD291A1B63339B00DF47C5 /* CircuitBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD29191B63339B00DF47C5 /* CircuitBoard.swift */; };
@@ -46,6 +49,8 @@
 		550E6B0F1B604AF500CDE757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		550E6B1A1B604CC400CDE757 /* CSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSP.swift; path = Sources/SwiftCSP/CSP.swift; sourceTree = "<group>"; };
 		550E6B1C1B604E9600CDE757 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/SwiftCSP/Constraint.swift; sourceTree = "<group>"; };
+		551266B728B555CE00F13BFC /* MinConflicts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MinConflicts.swift; path = Sources/SwiftCSP/MinConflicts.swift; sourceTree = "<group>"; };
+		551266BA28B9515800F13BFC /* SudokuTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SudokuTest.swift; path = Tests/SwiftCSPTests/SudokuTest.swift; sourceTree = SOURCE_ROOT; };
 		55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AustralianMapColoringTest.swift; path = Tests/SwiftCSPTests/AustralianMapColoringTest.swift; sourceTree = SOURCE_ROOT; };
 		55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EightQueensTest.swift; path = Tests/SwiftCSPTests/EightQueensTest.swift; sourceTree = SOURCE_ROOT; };
 		55CD29191B63339B00DF47C5 /* CircuitBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircuitBoard.swift; path = Demo/CircuitBoard.swift; sourceTree = SOURCE_ROOT; };
@@ -77,6 +82,7 @@
 				550E6B1A1B604CC400CDE757 /* CSP.swift */,
 				550E6B1C1B604E9600CDE757 /* Constraint.swift */,
 				55047EAB1B6158BB00309A30 /* Backtrack.swift */,
+				551266B728B555CE00F13BFC /* MinConflicts.swift */,
 				550E6AFC1B604AF500CDE757 /* SwiftCSP */,
 				550E6B0D1B604AF500CDE757 /* SwiftCSPTests */,
 				550E6AFB1B604AF500CDE757 /* Products */,
@@ -119,6 +125,7 @@
 			children = (
 				55047EAE1B616DE000309A30 /* SendMoreMoneyTest.swift */,
 				55CD29151B63189800DF47C5 /* AustralianMapColoringTest.swift */,
+				551266BA28B9515800F13BFC /* SudokuTest.swift */,
 				55CD29171B6327CA00DF47C5 /* EightQueensTest.swift */,
 				550E6B0E1B604AF500CDE757 /* Supporting Files */,
 			);
@@ -242,6 +249,7 @@
 				55CD291C1B6339BE00DF47C5 /* LayoutView.swift in Sources */,
 				55CD291A1B63339B00DF47C5 /* CircuitBoard.swift in Sources */,
 				550E6B1B1B604CC400CDE757 /* CSP.swift in Sources */,
+				551266B828B555CE00F13BFC /* MinConflicts.swift in Sources */,
 				550E6B001B604AF500CDE757 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,8 +261,10 @@
 				55CD29181B6327CA00DF47C5 /* EightQueensTest.swift in Sources */,
 				55047EAD1B6158BB00309A30 /* Backtrack.swift in Sources */,
 				55CD29161B63189800DF47C5 /* AustralianMapColoringTest.swift in Sources */,
+				551266B928B555CE00F13BFC /* MinConflicts.swift in Sources */,
 				55047EB01B616DE000309A30 /* SendMoreMoneyTest.swift in Sources */,
 				550E6B1E1B604E9600CDE757 /* Constraint.swift in Sources */,
+				551266BB28B9515800F13BFC /* SudokuTest.swift in Sources */,
 				550E6B1F1B604E9A00CDE757 /* CSP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

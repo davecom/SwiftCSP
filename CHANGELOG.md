@@ -1,3 +1,7 @@
+### 0.9.9
+- Added Sudoku Example Tests
+- Added Initial Version of a MinConflicts solver
+
 ### 0.9.8
 - LCV Heuristic
 - Changed to Apache License

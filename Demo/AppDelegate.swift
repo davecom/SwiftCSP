@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func solve(_ sender: AnyObject) {
         //create the CSP
-        var variables = circuitBoards
+        let variables = circuitBoards
         var domains: Dictionary<CircuitBoard, [(Int, Int)]> = Dictionary<CircuitBoard, [(Int, Int)]>()
         for variable in variables {
             domains[variable] = variable.generateDomain(boardWidth: boardWidth, boardHeight: boardHeight)

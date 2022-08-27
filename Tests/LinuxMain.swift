@@ -5,4 +5,5 @@ XCTMain([
     testCase(AustralianMapColoringTest.allTests),
     testCase(EightQueensTest.allTests),
     testCase(SendMoreMoneyTest.allTests),
+    testCase(SudokuTest.allTests),
 ])

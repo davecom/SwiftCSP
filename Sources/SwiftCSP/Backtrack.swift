@@ -21,7 +21,7 @@
 /// - parameter csp: The CSP to operate on.
 /// - parameter assignment: Optionally, an already partially completed assignment.
 /// - parameter mrv: Should it use the mrv heuristic to try to improve performance (default false)
-/// - parameter lcv: SHould it use the lcv heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
+/// - parameter lcv: SHould it use the lcv heuristic to try to improve performance (default false)
 /// - parameter mac3: SHould it use the mac3 heuristic to try to improve performance (default false) NOT IMPLEMENTED YET
 /// - returns: the assignment (solution), or nil if none can be found
 public func backtrackingSearch<V, D>(csp: CSP<V, D>, assignment: Dictionary<V, D> = Dictionary<V, D>(), mrv: Bool = false, lcv: Bool = false, mac3: Bool = false) -> Dictionary<V, D>?
